@@ -50,7 +50,7 @@ fi
 declare gitUser="cryophobia"
 declare -x gitBranch="main"
 declare initScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/scripts/init-env.sh
-declare suppressAzureResources=true
+declare suppressAzureResources=false
 declare rootLocation=~/clouddrive
 declare editorHomeLocation=$rootLocation/mslearn-aks
 
