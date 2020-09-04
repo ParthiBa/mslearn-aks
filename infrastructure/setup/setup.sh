@@ -43,7 +43,7 @@ declare -x dotnetSdkVersion="3.1.302"
 
 # Module name
 if [ -z "$moduleName" ]; then
-    declare moduleName="learn-deploy-helm-aks"
+    declare moduleName="learn-helm-deploy-aks"
 fi
 
 # Any other declarations we need
