@@ -210,13 +210,14 @@ cleanupTempFiles() {
 }
 
 # Load the theme
-declare themeScript=$scriptPath/theme.sh
+declare themeScript="$scriptPath/theme.sh"
 echo "ThemeScript: $themeScript"
 . <(wget -q -O - $themeScript)
 
 # Execute functions
 
 checkForCloudShell
+
 if ! [ "$suppressAzureResources" ]; then
     determineResourceGroup
 fi
