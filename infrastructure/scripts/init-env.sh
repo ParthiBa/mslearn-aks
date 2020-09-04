@@ -169,29 +169,26 @@ summarize() {
 
 determineResourceGroup() {
     # Figure out the name of the resource group to use
-    echo "Figure out the name of the resource group to use"
     declare existingResourceGroup=$(az group list | jq '.[] | select(.tags."x-created-by"=="freelearning").name' --raw-output)
 
     # If there is more than one RG or there's only one but its name is not a GUID,
     # we're probably not in the Learn sandbox.
-    # if ! [ $existingResourceGroup ]
-    # then
-    #     echo "${warningStyle}WARNING!!!" \
-    #         "It appears you aren't currently running in a Microsoft Learn sandbox." \
-    #         "Any Azure resources provisioned by this script will result in charges" \
-    #         "to your Azure subscription.${defaultTextStyle}"
-    #     resourceGroupName="$moduleName-rg"
-    # else
-    #     resourceGroupName=$existingResourceGroup
-    # fi
+    if [ "$existingResourceGroup" = false ]; then
+        echo "${warningStyle}WARNING!!!" \
+            "It appears you aren't currently running in a Microsoft Learn sandbox." \
+            "Any Azure resources provisioned by this script will result in charges" \
+            "to your Azure subscription.${defaultTextStyle}"
+        resourceGroupName="$moduleName-rg"
+    else
+        resourceGroupName=$existingResourceGroup
+    fi
 
     echo "Using Azure resource group ${azCliCommandStyle}$resourceGroupName${defaultTextStyle}."
 }
 
 checkForCloudShell() {
     # Check to make sure we're in Azure Cloud Shell
-    if [ "${AZURE_HTTP_USER_AGENT:0:11}" != "cloud-shell" ]
-    then
+    if [ "${AZURE_HTTP_USER_AGENT:0:11}" != "cloud-shell" ]; then
         echo "${warningStyle}WARNING!!!" \
             "It appears you aren't running this script in an instance of Azure Cloud Shell." \
             "This script was designed for the environment in Azure Cloud Shell, and we can make no promises that it'll function as intended anywhere else." \
