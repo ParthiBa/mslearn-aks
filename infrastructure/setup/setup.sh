@@ -73,8 +73,8 @@ else
     cp ~/.bashrc ~/.bashrc.bak.$moduleName
 
     # Grab and run initenvironment.sh
+    echo $initScript
     . <(wget -q -O - $initScript)
-    #. int-env.sh
 
     # Download and build
     downloadAndBuild
@@ -83,7 +83,7 @@ else
     cd $editorHomeLocation
 
     # Launch editor so the user can see the code
-    code .
+    # code .
 
     # Run mslearn-aks quickstart to deploy to AKS
     #TODO: Remove sub after testing
