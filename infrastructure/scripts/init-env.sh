@@ -179,7 +179,7 @@ determineResourceGroup() {
             "It appears you aren't currently running in a Microsoft Learn sandbox." \
             "Any Azure resources provisioned by this script will result in charges" \
             "to your Azure subscription.${defaultTextStyle}"
-        resourceGroupName=$moduleName"-rg"
+        resourceGroupName="$moduleName-rg"
     else
         resourceGroupName=$existingResourceGroup
     fi
