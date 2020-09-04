@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Color theming
-if [ -f ~/clouddrive/aks-learn/setup/theme.sh ]
+if [ -f ~/clouddrive/mslearn-aks/setup/theme.sh ]
 then
-  . <(cat ~/clouddrive/aks-learn/setup/theme.sh)
+  . <(cat ~/clouddrive/mslearn-aks/setup/theme.sh)
 fi
 
 clusterAksName=${CLUSTER_NAME}
@@ -219,8 +219,8 @@ echo export CLUSTER_LBIP=$aksLbIp >> create-aks-exports.txt
 if [ -z "$LEARN_QUICKSTART" ]
 then
     echo "Run the following command to update the environment"
-    echo 'eval $(cat ~/clouddrive/aks-learn/create-aks-exports.txt)'
+    echo 'eval $(cat ~/clouddrive/mslearn-aks/create-aks-exports.txt)'
     echo
 fi
 
-mv -f create-aks-exports.txt ~/clouddrive/aks-learn/
+mv -f create-aks-exports.txt ~/clouddrive/mslearn-aks/
