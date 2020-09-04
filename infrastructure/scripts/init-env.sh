@@ -174,16 +174,16 @@ determineResourceGroup() {
 
     # If there is more than one RG or there's only one but its name is not a GUID,
     # we're probably not in the Learn sandbox.
-    if ! [ $existingResourceGroup ]
-    then
-        echo "${warningStyle}WARNING!!!" \
-            "It appears you aren't currently running in a Microsoft Learn sandbox." \
-            "Any Azure resources provisioned by this script will result in charges" \
-            "to your Azure subscription.${defaultTextStyle}"
-        resourceGroupName="$moduleName-rg"
-    else
-        resourceGroupName=$existingResourceGroup
-    fi
+    # if ! [ $existingResourceGroup ]
+    # then
+    #     echo "${warningStyle}WARNING!!!" \
+    #         "It appears you aren't currently running in a Microsoft Learn sandbox." \
+    #         "Any Azure resources provisioned by this script will result in charges" \
+    #         "to your Azure subscription.${defaultTextStyle}"
+    #     resourceGroupName="$moduleName-rg"
+    # else
+    #     resourceGroupName=$existingResourceGroup
+    # fi
 
     echo "Using Azure resource group ${azCliCommandStyle}$resourceGroupName${defaultTextStyle}."
 }
@@ -218,12 +218,10 @@ declare themeScript=$scriptPath/theme.sh
 checkForCloudShell
 
 if ! [ "$suppressAzureResources" ]; then
-    echo "suppressAzureResources: $suppressAzureResources"
     determineResourceGroup
 fi
 
 if ! [ "$suppressConfigureDotNet" ]; then
-    echo "suppressConfigureDotNet: $suppressConfigureDotNet"
     configureDotNetCli
 else
     setPathEnvironmentVariableForDotNet
