@@ -94,7 +94,7 @@ else
     #cp ~/nginx-service-loadbalancer.yaml $editorHomeLocation/deploy/k8s/ingress-controller/nginx-service-loadbalancer.yaml
     #cp ~/nginx-mandatory.yaml $editorHomeLocation/deploy/k8s/ingress-controller/nginx-mandatory.yaml
     #cp ~/nginx-config-map.yaml $editorHomeLocation/deploy/k8s/ingress-controller/nginx-config-map.yaml
-    #$editorHomeLocation/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
+    $editorHomeLocation/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
     echo "ResourceGRoupName: $resourceGroupName"
 
