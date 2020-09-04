@@ -169,6 +169,7 @@ summarize() {
 
 determineResourceGroup() {
     # Figure out the name of the resource group to use
+    echo "Figure out the name of the resource group to use"
     declare existingResourceGroup=$(az group list | jq '.[] | select(.tags."x-created-by"=="freelearning").name' --raw-output)
 
     # If there is more than one RG or there's only one but its name is not a GUID,
@@ -211,7 +212,6 @@ checkForCloudShell() {
 
 # Load the theme
 declare themeScript=$scriptPath/theme.sh
-echo "ThemeScript: $themeScript"
 . <(wget -q -O - $themeScript)
 
 # Execute functions
@@ -221,11 +221,13 @@ checkForCloudShell
 if ! [ "$suppressAzureResources" ]; then
     determineResourceGroup
 fi
+
 if ! [ "$suppressConfigureDotNet" ]; then
     configureDotNetCli
 else
     setPathEnvironmentVariableForDotNet
 fi
+
 displayGreeting
 
 # Additional setup in setup.sh occurs next.
