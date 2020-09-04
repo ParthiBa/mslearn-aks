@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Color theming
-# Load the theme
-declare themeScript=$scriptPath/theme.sh
-. <(wget -q -O - $themeScript)
+if [ -f ~/clouddrive/learn-aks/infrastructure/scripts/theme.sh ]
+then
+  . <(cat ~/clouddrive/learn-aks/infrastructure/scripts/theme.sh)
+fi
 
 
 clusterAksName=${CLUSTER_NAME}
