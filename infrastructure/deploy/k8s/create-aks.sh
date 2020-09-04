@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Color theming
-# if [ -f ~/clouddrive/mslearn-aks/setup/theme.sh ]
-# then
-#   . <(cat ~/clouddrive/mslearn-aks/setup/theme.sh)
-# fi
+# Load the theme
+declare themeScript=$scriptPath/theme.sh
+. <(wget -q -O - $themeScript)
+
 
 clusterAksName=${CLUSTER_NAME}
 clusterSubs=${CLUSTER_SUBS}

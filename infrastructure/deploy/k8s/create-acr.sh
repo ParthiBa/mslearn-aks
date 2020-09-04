@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Color theming
-# if [ -f ~/clouddrive/mslearn-aks/infrastructure/deploy/theme.sh ]
-# then
-#   . <(cat ~/clouddrive/mslearn-aks/infrastructure/deploy/theme.sh)
-# fi
+# Load the theme
+declare themeScript=$scriptPath/theme.sh
+. <(wget -q -O - $themeScript)
+
 
 if [ -f ~/clouddrive/mslearn-aks/create-aks-exports.txt ]
 then
