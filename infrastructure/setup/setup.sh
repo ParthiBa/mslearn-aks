@@ -86,14 +86,6 @@ else
     # code .
 
     # Run mslearn-aks quickstart to deploy to AKS
-    #TODO: Remove sub after testing
-    #cp ~/theme.sh $editorHomeLocation/setup/theme.sh
-    #cp ~/quickstart.sh $editorHomeLocation/deploy/k8s/quickstart.sh
-    #cp ~/create-aks.sh $editorHomeLocation/deploy/k8s/create-aks.sh
-    #cp ~/create-acr.sh $editorHomeLocation/deploy/k8s/create-acr.sh
-    #cp ~/nginx-service-loadbalancer.yaml $editorHomeLocation/deploy/k8s/ingress-controller/nginx-service-loadbalancer.yaml
-    #cp ~/nginx-mandatory.yaml $editorHomeLocation/deploy/k8s/ingress-controller/nginx-mandatory.yaml
-    #cp ~/nginx-config-map.yaml $editorHomeLocation/deploy/k8s/ingress-controller/nginx-config-map.yaml
     $editorHomeLocation/infrastructure/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
     echo "ResourceGRoupName: $resourceGroupName"
