@@ -18,7 +18,7 @@ then
     declare rootLocation=~
 fi
 
-declare srcWorkingDirectory=$rootLocation/mslearn-aks/src
+#declare srcWorkingDirectory=$rootLocation/mslearn-aks/src
 #declare setupWorkingDirectory=$rootLocation/mslearn-aks/setup
 declare subscriptionId=$(az account show --query id --output tsv)
 declare resourceGroupName=""

@@ -35,17 +35,17 @@ if [ -d "$DIR" ]; then
     # Current structure is ~/mslearn-aks/modules/learn-helm-deploy-aks/src (for example).
     # This is a longer path than we'd like for the best experience,
     # so let's move the src and setup directories up a level
-    pushd ${CHECKOUT_DIRS[0]}
-    cd ../..
-    DELETE_DIR=$PWD 
-    popd
-    for i in ${CHECKOUT_DIRS[@]}; do
-        mv ${i} ./
-        while [ ! $? -eq 0 ]; do
-            echo "Couldn't move files to working directory. Retrying..."
-            sleep 5
-            mv ${i} ./
-        done
-    done
-    rm $DELETE_DIR -rf
+    # pushd ${CHECKOUT_DIRS[0]}
+    # cd ../..
+    # DELETE_DIR=$PWD 
+    # popd
+    # for i in ${CHECKOUT_DIRS[@]}; do
+    #     mv ${i} ./
+    #     while [ ! $? -eq 0 ]; do
+    #         echo "Couldn't move files to working directory. Retrying..."
+    #         sleep 5
+    #         mv ${i} ./
+    #     done
+    # done
+    # rm $DELETE_DIR -rf
 fi
