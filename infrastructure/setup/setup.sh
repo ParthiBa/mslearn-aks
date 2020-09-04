@@ -73,7 +73,6 @@ else
     cp ~/.bashrc ~/.bashrc.bak.$moduleName
 
     # Grab and run initenvironment.sh
-    echo $initScript
     . <(wget -q -O - $initScript)
 
     # Download and build

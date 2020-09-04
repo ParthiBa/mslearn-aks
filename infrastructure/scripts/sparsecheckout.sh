@@ -5,6 +5,8 @@
 # be set and contain the branch to be used, e.g., "live" or "master".
 
 # constants
+declare gitUser="cryophobia"
+
 DIR="aks-learn"
 REPOS="https://github.com/$gitUser/mslearn-aks"
 BRANCH=$gitBranch
