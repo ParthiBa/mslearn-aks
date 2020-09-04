@@ -11,7 +11,7 @@ declare scriptPath=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBr
 declare dotnetScriptsPath=$scriptPath/dotnet
 declare instanceId=$(($RANDOM * $RANDOM))
 declare gitDirectoriesToClone="infrastructure/deploy/ modules/$moduleName/src/"
-declare gitPathToCloneScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/scripts/sparsecheckout.sh
+declare gitPathToCloneScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/setup/sparsecheckout.sh
 
 if ! [ $rootLocation ]
 then

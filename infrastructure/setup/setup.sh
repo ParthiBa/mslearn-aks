@@ -49,7 +49,7 @@ fi
 # Any other declarations we need
 declare gitUser="cryophobia"
 declare -x gitBranch="main"
-declare initScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/scripts/init-env.sh
+declare initScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/setup/init-env.sh
 declare suppressAzureResources=false
 declare suppressConfigureDotNet=false
 declare rootLocation=~/clouddrive
@@ -64,12 +64,6 @@ if [ -d "$rootLocation/mslearn-aks" ]; then
     echo " "
     return 1
 else
-    #mkdir $rootLocation/mslearn-aks
-    #mkdir $editorHomeLocation/setup
-    #mkdir $editorHomeLocation/deploy
-    #mkdir $editorHomeLocation/deploy/k8s
-    #mkdir $editorHomeLocation/deploy/k8s/ingress-controller
-
     # Backup .bashrc
     cp ~/.bashrc ~/.bashrc.bak.$moduleName
 

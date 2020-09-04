@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Color theming
-if [ -f ~/clouddrive/mslearn-aks/setup/theme.sh ]
-then
-  . <(cat ~/clouddrive/mslearn-aks/setup/theme.sh)
-fi
+# if [ -f ~/clouddrive/mslearn-aks/infrastructure/deploy/theme.sh ]
+# then
+#   . <(cat ~/clouddrive/mslearn-aks/infrastructure/deploy/theme.sh)
+# fi
 
 if [ -f ~/clouddrive/mslearn-aks/create-aks-exports.txt ]
 then

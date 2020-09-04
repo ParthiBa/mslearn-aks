@@ -57,7 +57,7 @@ export CLUSTER_LOCATION=$clusterLocation
 export LEARN_REGISTRY=$learnAcrName
 export LEARN_QUICKSTART=true
 
-cd ~/clouddrive/mslearn-aks/deploy/k8s
+cd ~/clouddrive/mslearn-aks/infrastructure/deploy/k8s
 
 # AKS Cluster creation
 . create-aks.sh
