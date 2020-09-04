@@ -210,12 +210,12 @@ cleanupTempFiles() {
 }
 
 # Load the theme
+echo $themeScript
+
 declare themeScript=$scriptPath/theme.sh
 . <(wget -q -O - $themeScript)
 
 # Execute functions
-
-echo "Execute functions"
 
 checkForCloudShell
 if ! [ "$suppressAzureResources" ]; then
