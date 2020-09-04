@@ -76,7 +76,7 @@ appFromExternalRepo:
     repository: https://github.com/cryophobia/mslearn-aks.git
     ## Git revision to checkout
     ##
-    revision: master
+    revision: main
   publish:
     ## Bitnami .NET SDK image version
     ## ref: https://hub.docker.com/r/bitnami/dotnet-sdk/tags/
@@ -354,7 +354,7 @@ ingress:
 
   ## When the ingress is enabled, a host pointing to this will be created
   ## If no host is set, a wildcard (*) assignment is done
-  ## hostname: aspnet-core.local
+  hostname: aspnet-core.local
 
   ## Ingress annotations done as key:value pairs
   ## For a full list of possible ingress annotations, please see

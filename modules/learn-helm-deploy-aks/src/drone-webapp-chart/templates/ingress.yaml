@@ -20,11 +20,9 @@ metadata:
 spec:
   rules:
     {{- if .Values.ingress.hostname }}
-    - host: {{ .Values.ingress.hostname }}
-      http:
-    {{- else }}
+    # We're not setting a hostname - rather allow for wildcard (*). However, we do still want the rest of the ingress configured.
+    #- host: {{ .Values.ingress.hostname }}
     - http:
-    {{- end }}
         paths:
           - path: /
             backend:
