@@ -32,7 +32,7 @@ if [ -d "$DIR" ]; then
     git checkout $BRANCH --quiet
     git merge --ff-only origin/$BRANCH --quiet
 
-    # Current structure is ~/aks-learn/modules/aks-app-package-management-using-helm/src (for example).
+    # Current structure is ~/aks-learn/modules/learn-helm-deploy-aks/src (for example).
     # This is a longer path than we'd like for the best experience,
     # so let's move the src and setup directories up a level
     pushd ${CHECKOUT_DIRS[0]}
