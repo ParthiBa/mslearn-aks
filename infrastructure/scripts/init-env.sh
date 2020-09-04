@@ -173,7 +173,7 @@ determineResourceGroup() {
 
     # If there is more than one RG or there's only one but its name is not a GUID,
     # we're probably not in the Learn sandbox.
-    if [ "$existingResourceGroup" = false ]; then
+    if [ "$existingResourceGroup" = "" ]; then
         echo "${warningStyle}WARNING!!!" \
             "It appears you aren't currently running in a Microsoft Learn sandbox." \
             "Any Azure resources provisioned by this script will result in charges" \
