@@ -47,7 +47,7 @@ if [ -z "$moduleName" ]; then
 fi
 
 # Any other declarations we need
-declare gitUser = "cryophobia"
+declare gitUser="cryophobia"
 declare -x gitBranch="main"
 declare initScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/scripts/init-env.sh
 declare suppressAzureResources=true
