@@ -206,10 +206,6 @@ checkForCloudShell() {
     fi
 }
 
-#cleanupTempFiles() {
-    # Cleanup files here
-#}
-
 # Load the theme
 declare themeScript=$scriptPath/theme.sh
 . <(wget -q -O - $themeScript)
