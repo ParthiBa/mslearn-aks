@@ -6,7 +6,7 @@
 # projectRootDirectory
 
 # Common Declarations
-declare gitUser = "cryophobia"
+declare gitUser="cryophobia"
 declare scriptPath=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/scripts
 declare dotnetScriptsPath=$scriptPath/dotnet
 declare instanceId=$(($RANDOM * $RANDOM))
