@@ -211,7 +211,7 @@ cleanupTempFiles() {
 
 # Load the theme
 declare themeScript=$scriptPath/theme.sh
-echo $themeScript
+echo "ThemeScript: $themeScript"
 . <(wget -q -O - $themeScript)
 
 # Execute functions

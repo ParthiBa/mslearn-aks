@@ -95,7 +95,7 @@ else
     #cp ~/nginx-config-map.yaml $editorHomeLocation/deploy/k8s/ingress-controller/nginx-config-map.yaml
     #$editorHomeLocation/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
-    echo $resourceGroupName
+    echo "ResourceGRoupName: $resourceGroupName"
 
     # Create ACR resource
     #$editorHomeLocation/deploy/k8s/create-acr.sh
