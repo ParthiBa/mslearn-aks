@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Color theming
-if [ -f ~/clouddrive/learn-aks/infrastructure/scripts/theme.sh ]
+if [ -f ~/clouddrive/learn-aks/infrastructure/deploy/theme.sh ]
 then
-  . <(cat ~/clouddrive/learn-aks/infrastructure/scripts/theme.sh)
+  . <(cat ~/clouddrive/learn-aks/infrastructure/deploy/theme.sh)
 fi
 
 
