@@ -87,7 +87,7 @@ exec 2>&3
 
 if [ -z "$rg" ]
 then
-    if [ -z "clusterSubs" ]
+    if [ -z "$clusterSubs" ]
     then
         echo "${newline}${errorStyle}ERROR: If resource group has to be created, location is mandatory. Use -l to set it.${defaultTextStyle}${newline}"
         exit 1
@@ -164,7 +164,7 @@ aksNodeRGCommand="az aks list --query \"[?name=='$clusterAksName'&&resourceGroup
 retry=5
 echo "${newline} > ${azCliCommandStyle}$aksNodeRGCommand${defaultTextStyle}${newline}"
 aksNodeRG=$(eval $aksNodeRGCommand)
-while [ "$aksNodeRG" == "" ]
+while [ -z "$aksNodeRG" ]
 do
     echo
     echo "Unable to obtain load balancer resource group. Retrying in 5s..."
@@ -177,10 +177,10 @@ do
 done
 
 
-while [ "$aksLbIp" == "" ] || [ "$aksLbIp" == "<pending>" ]
+while [ -z "$aksLbIp" ] || [ "$aksLbIp" == "<pending>" ]
 do
     aksLbIp=`kubectl get svc/ingress-nginx -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
-    if [ "$aksLbIp" == "" ]
+    if [ -z "$aksLbIp" ]
     then
         echo "Waiting for the Load Balancer IP address - Ctrl+C to cancel..."
         sleep 5
@@ -209,7 +209,7 @@ then
     echo export LEARN_REGISTRY=$learnRegistry >> create-aks-exports.txt
 fi
 
-if [ "$spHomepage" != "" ]
+if [ ! -z "$spHomepage" ]
 then
    echo export LEARN_CLIENTID=$clusterClientId >> create-aks-exports.txt
    echo export LEARNCLIENTPASSWORD=$clusterClientSecret >> create-aks-exports.txt

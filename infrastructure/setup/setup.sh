@@ -14,6 +14,12 @@ while [ "$1" != "" ]; do
         -n | --name)                    shift
                                         moduleName=$1
                                         ;;
+        -n | --use-acr)                    shift
+                                        useACR=$1
+                                        ;;
+        -n | --install-dot-net)                    shift
+                                        suppressConfigureDotNet=$1
+                                        ;;
              * )                        echo "Invalid param: $1"
                                         exit 1
     esac
@@ -76,17 +82,17 @@ else
     # Set location to ~/clouddrive
     cd $editorHomeLocation
 
-    # Launch editor so the user can see the code
-    # code .
-
     # Run mslearn-aks quickstart to deploy to AKS
-    $editorHomeLocation/infrastructure/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
+    #$editorHomeLocation/infrastructure/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
     echo "ResourceGRoupName: $resourceGroupName"
 
     # Create ACR resource
-    #$editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh
+    if [ $useACR == true ]; then
+        #$editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh --subscription $clusterSubs --resource-group $resourceGroupName --aks-name $moduleName --acr-name mslearn-aks-acr --location westus
+        echo "Creating ACR ..."
+    fi
 
     # Display URLs to user
-    #cat ~/clouddrive/learn-aks/deployment-urls.txt
+    cat ~/clouddrive/learn-aks/deployment-urls.txt
 fi
