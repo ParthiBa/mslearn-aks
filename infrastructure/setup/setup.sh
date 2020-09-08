@@ -14,10 +14,10 @@ while [ "$1" != "" ]; do
         -n | --name)                    shift
                                         moduleName=$1
                                         ;;
-        --use-acr)                      shift
+        -a | --use-acr)                 shift
                                         useACR=$1
                                         ;;
-        --install-dot-net)              shift
+        -i | --install-dot-net)         shift
                                         installDotNet=$1
                                         ;;
              * )                        echo "Invalid param: $1"
@@ -45,14 +45,9 @@ cd ~
 # dotnet SDK version
 declare -x dotnetSdkVersion="3.1.302"
 
-# Don't install then dotnet SDK if not specified
-if [ -z "$installDotNet" ]; then
-    declare $installDotNet = false
-fi
-
 # Module name
 if [ -z "$moduleName" ]; then
-    declare moduleName = "learn-helm-deploy-aks"
+    declare moduleName="mslearn-aks"
 fi
 
 # Any other declarations we need
@@ -75,6 +70,10 @@ else
     # Backup .bashrc
     cp ~/.bashrc ~/.bashrc.bak.$moduleName
 
+    if [ -z "$installDotNet" ]; then
+        declare installDotNet="false"
+    fi
+
     # Grab and run initenvironment.sh
     . <(wget -q -O - $initScript)
 
@@ -89,7 +88,7 @@ else
 
     # Create ACR resource
     if [ -z "$useACR" ]; then
-        declare useACR = false
+        declare useACR="false"
     fi
 
     echo "useACR $useACR"
@@ -100,4 +99,10 @@ else
 
     # Display URLs to user
     cat ~/clouddrive/learn-aks/deployment-urls.txt
+
+    #Reset variables
+    declare clusterSubs=""
+    declare moduleName=""
+    declare useACR="false"
+    declare installDotNet="false"
 fi
