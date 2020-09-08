@@ -108,10 +108,10 @@ else
     echo "=================================================================================="
     cat ~/clouddrive/mslearn-aks/create-aks-exports.txt
     echo "=================================================================================="
-
-    #Reset variables
-    declare clusterSubs=""
-    declare moduleName=""
-    declare useACR="false"
-    declare installDotNet="false"
 fi
+
+#Reset variables
+declare clusterSubs=""
+declare moduleName=""
+declare useACR="false"
+declare installDotNet="false"
