@@ -104,7 +104,7 @@ else
     echo "=================================================================================="
     echo 
     echo
-    "Azure Container Kubernetes Cluster Information"
+    echo "Azure Container Kubernetes Cluster Information"
     echo "=================================================================================="
     cat ~/clouddrive/mslearn-aks/create-aks-exports.txt
     echo "=================================================================================="
