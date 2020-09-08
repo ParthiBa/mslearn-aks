@@ -88,6 +88,7 @@ else
     #$editorHomeLocation/infrastructure/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
     # Create ACR resource
+    echo "useACR $useACR"
     if  ! [ -z "$useACR" ] && [ $useACR == true ]; then
         #$editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh --subscription $clusterSubs --resource-group $resourceGroupName --aks-name $moduleName --acr-name mslearn-aks-acr --location westus
         echo "Calling create ACR ..."
