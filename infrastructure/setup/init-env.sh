@@ -210,6 +210,10 @@ declare themeScript=$scriptPath/theme.sh
 # Execute functions
 checkForCloudShell
 
+echo "suppressAzureResources: $suppressAzureResources"
+
+echo "suppressConfigureDotNet: $suppressConfigureDotNet"
+
 if [ "$suppressAzureResources" == false ]; then
     determineResourceGroup
 fi
