@@ -48,7 +48,8 @@ cd ~
 declare -x dotnetSdkVersion="3.1.302"
 
 # Don't install then dotnet SDK if not specified
-if [-z "$installDotNet"]; then
+if [ -z "$installDotNet" ] 
+then
     declare $installDotNet = false
 fi
 
@@ -89,13 +90,9 @@ else
     # Run mslearn-aks quickstart to deploy to AKS
     #$editorHomeLocation/infrastructure/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
-    # Don't install then dotnet SDK if not specified
-    if [-z "$installDotNet"]; then
-        declare $installDotNet = false
-    fi
-
     # Create ACR resource
-    if  ! [-z "$useACR"] && [ $useACR ]; then
+    if  ! [ -z "$useACR" ] && [ $useACR ]
+    then
         #$editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh --subscription $clusterSubs --resource-group $resourceGroupName --aks-name $moduleName --acr-name mslearn-aks-acr --location westus
         echo "Creating ACR ..."
     fi
