@@ -52,7 +52,7 @@ fi
 
 # Module name
 if [ -z "$moduleName" ]; then
-    declare moduleName="learn-helm-deploy-aks"
+    declare moduleName = "learn-helm-deploy-aks"
 fi
 
 # Any other declarations we need
@@ -89,7 +89,7 @@ else
 
     # Create ACR resource
     if [ -z "$useACR" ]; then
-    declare $useACR = false
+        declare useACR = false
     fi
 
     echo "useACR $useACR"
