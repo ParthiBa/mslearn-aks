@@ -214,11 +214,11 @@ echo "suppressAzureResources: $suppressAzureResources"
 
 echo "installDotNet: $installDotNet"
 
-if ! [ "$suppressAzureResources" ]; then
+if ! [ $suppressAzureResources ]; then
     determineResourceGroup
 fi
 
-if ! [ "$installDotNet" ]; then
+if [ $installDotNet ]; then
     configureDotNetCli
 else
     setPathEnvironmentVariableForDotNet

@@ -54,7 +54,8 @@ then
 fi
 
 # Module name
-if [ -z "$moduleName" ]; then
+if [ -z "$moduleName" ]
+then
     declare moduleName="learn-helm-deploy-aks"
 fi
 
@@ -94,7 +95,7 @@ else
     if  ! [ -z "$useACR" ] && [ $useACR ]
     then
         #$editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh --subscription $clusterSubs --resource-group $resourceGroupName --aks-name $moduleName --acr-name mslearn-aks-acr --location westus
-        echo "Creating ACR ..."
+        echo "Calling create ACR ..."
     fi
 
     # Display URLs to user
