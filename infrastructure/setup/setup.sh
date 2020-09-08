@@ -14,10 +14,10 @@ while [ "$1" != "" ]; do
         -n | --name)                    shift
                                         moduleName=$1
                                         ;;
-        -n | --use-acr)                 shift
+        --use-acr)                      shift
                                         useACR=$1
                                         ;;
-        -n | --install-dot-net)         shift
+        --install-dot-net)              shift
                                         installDotNet=$1
                                         ;;
              * )                        echo "Invalid param: $1"
@@ -26,8 +26,7 @@ while [ "$1" != "" ]; do
     shift
 done
 
-if [ -z "$clusterSubs" ]
-then
+if [ -z "$clusterSubs" ]; then
      echo "${newline}${errorStyle}ERROR: Subscription is mandatory. Use -s to set it.$clusterSubs.${defaultTextStyle}${newline}"
      listSubsCommand="az account list -o table"
      $listSubsCommand
@@ -35,8 +34,7 @@ then
      return 1
 fi
 
-if [ -z "$moduleName" ]
-then
+if [ -z "$moduleName" ]; then
      echo "${newline}${errorStyle}ERROR: Cluster name is mandatory. Use -n to set it.$clusterSubs.${defaultTextStyle}${newline}"
      return 1
 fi
@@ -48,14 +46,12 @@ cd ~
 declare -x dotnetSdkVersion="3.1.302"
 
 # Don't install then dotnet SDK if not specified
-if [ -z "$installDotNet" ] 
-then
+if [ -z "$installDotNet" ]; then
     declare $installDotNet = false
 fi
 
 # Module name
-if [ -z "$moduleName" ]
-then
+if [ -z "$moduleName" ]; then
     declare moduleName="learn-helm-deploy-aks"
 fi
 
@@ -92,8 +88,7 @@ else
     #$editorHomeLocation/infrastructure/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
     # Create ACR resource
-    if  ! [ -z "$useACR" ] && [ $useACR ]
-    then
+    if  ! [ -z "$useACR" ] && [ $useACR == true ]; then
         #$editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh --subscription $clusterSubs --resource-group $resourceGroupName --aks-name $moduleName --acr-name mslearn-aks-acr --location westus
         echo "Calling create ACR ..."
     fi

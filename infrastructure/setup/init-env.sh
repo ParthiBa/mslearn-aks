@@ -13,8 +13,7 @@ declare instanceId=$(($RANDOM * $RANDOM))
 declare gitDirectoriesToClone="infrastructure/deploy/ modules/$moduleName/src/"
 declare gitPathToCloneScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/setup/sparsecheckout.sh
 
-if ! [ $rootLocation ]
-then
+if ! [ $rootLocation ]; then
     declare rootLocation=~
 fi
 
@@ -49,8 +48,7 @@ configureDotNetCli() {
     echo "${newline}${headingStyle}Configuring the .NET Core CLI...${defaultTextStyle}"
     declare installedDotNet=$(dotnet --version)
 
-    if [ "$dotnetSdkVersion" != "$installedDotNet" ];
-    then
+    if [ "$dotnetSdkVersion" != "$installedDotNet" ]; then
         # Install .NET Core SDK
         wget -q -O - https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version $dotnetSdkVersion
     fi
@@ -218,7 +216,7 @@ if ! [ $suppressAzureResources ]; then
     determineResourceGroup
 fi
 
-if [ $installDotNet ]; then
+if  ! [ -z "$installDotNet" ] && [ $installDotNet == true ]; then
     configureDotNetCli
 else
     setPathEnvironmentVariableForDotNet
