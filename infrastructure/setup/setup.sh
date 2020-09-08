@@ -97,8 +97,17 @@ else
         $editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh --subscription $clusterSubs --resource-group $resourceGroupName --aks-name $moduleName --acr-name mslearn-aks-acr --location westus
     fi
 
-    # Display URLs to user
-    cat ~/clouddrive/learn-aks/deployment-urls.txt
+    # Display information to use
+    echo "Azure Container Registry Information"
+    echo "=================================================================================="
+    cat ~/clouddrive/mslearn-aks/create-acr-exports.txt
+    echo "=================================================================================="
+    echo 
+    echo
+    "Azure Container Kubernetes Cluster Information"
+    echo "=================================================================================="
+    cat ~/clouddrive/mslearn-aks/create-aks-exports.txt
+    echo "=================================================================================="
 
     #Reset variables
     declare clusterSubs=""

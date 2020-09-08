@@ -215,8 +215,6 @@ then
    echo export LEARNCLIENTPASSWORD=$clusterClientSecret >> create-aks-exports.txt
 fi
 
-echo export CLUSTER_LBIP=$aksLbIp >> create-aks-exports.txt
-
 if [ -z "$LEARN_QUICKSTART" ]
 then
     echo "Run the following command to update the environment"
