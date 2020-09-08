@@ -141,7 +141,7 @@ displayGreeting() {
     cd ~
 
     # Display installed .NET Core SDK version
-    if ! [ "$suppressConfigureDotNet" ]; then
+    if ! [ "$installDotNet" ]; then
         echo "${defaultTextStyle}Using .NET Core SDK version ${headingStyle}$dotnetSdkVersion${defaultTextStyle}"
     fi
     
@@ -212,13 +212,13 @@ checkForCloudShell
 
 echo "suppressAzureResources: $suppressAzureResources"
 
-echo "suppressConfigureDotNet: $suppressConfigureDotNet"
+echo "installDotNet: $installDotNet"
 
-if [ "$suppressAzureResources" == false ]; then
+if ! [ "$suppressAzureResources" ]; then
     determineResourceGroup
 fi
 
-if [ "$suppressConfigureDotNet" == false ]; then
+if ! [ "$installDotNet" ]; then
     configureDotNetCli
 else
     setPathEnvironmentVariableForDotNet

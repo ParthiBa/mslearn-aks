@@ -14,11 +14,11 @@ while [ "$1" != "" ]; do
         -n | --name)                    shift
                                         moduleName=$1
                                         ;;
-        -n | --use-acr)                    shift
+        -n | --use-acr)                 shift
                                         useACR=$1
                                         ;;
-        -n | --install-dot-net)                    shift
-                                        suppressConfigureDotNet=$1
+        -n | --install-dot-net)         shift
+                                        installDotNet=$1
                                         ;;
              * )                        echo "Invalid param: $1"
                                         exit 1
@@ -47,6 +47,11 @@ cd ~
 # dotnet SDK version
 declare -x dotnetSdkVersion="3.1.302"
 
+# Don't install then dotnet SDK if not specified
+if [-z "$installDotNet"]; then
+    declare $installDotNet = false
+fi
+
 # Module name
 if [ -z "$moduleName" ]; then
     declare moduleName="learn-helm-deploy-aks"
@@ -57,7 +62,6 @@ declare gitUser="cryophobia"
 declare -x gitBranch="main"
 declare initScript=https://raw.githubusercontent.com/$gitUser/mslearn-aks/$gitBranch/infrastructure/setup/init-env.sh
 declare suppressAzureResources=false
-#declare suppressConfigureDotNet=false
 declare rootLocation=~/clouddrive
 declare editorHomeLocation=$rootLocation/mslearn-aks
 
@@ -85,10 +89,13 @@ else
     # Run mslearn-aks quickstart to deploy to AKS
     #$editorHomeLocation/infrastructure/deploy/k8s/quickstart.sh --subscription $clusterSubs --resource-group $resourceGroupName -n $moduleName --location westus
 
-    echo "ResourceGRoupName: $resourceGroupName"
+    # Don't install then dotnet SDK if not specified
+    if [-z "$installDotNet"]; then
+        declare $installDotNet = false
+    fi
 
     # Create ACR resource
-    if [ $useACR == true ]; then
+    if  ! [-z "$useACR"] && [ $useACR ]; then
         #$editorHomeLocation/infrastructure/deploy/k8s/create-acr.sh --subscription $clusterSubs --resource-group $resourceGroupName --aks-name $moduleName --acr-name mslearn-aks-acr --location westus
         echo "Creating ACR ..."
     fi
