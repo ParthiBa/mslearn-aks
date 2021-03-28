@@ -21,7 +21,7 @@ fi
 #declare setupWorkingDirectory=$rootLocation/mslearn-aks/setup
 declare subscriptionId=$(az account show --query id --output tsv)
 declare resourceGroupName=""
-declare defaultLocation="centralus"
+declare defaultLocation="westeurope"
 
 # Functions
 setAzureCliDefaults() {
